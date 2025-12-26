@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="ReSemAct: Advancing Fine-Grained Robotic Manipulation via Semantic Structuring and Affordance Refinement">
+  <meta name="keywords" content="Multimodal Large Language Models, Vision Foundation Models, Task and Motion Planning, Manipulation">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ReSemAct</title>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-NYKM5P6F39"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-NYKM5P6F39');
+  </script>
+
+  <script>
+
+    function updateInteractiveSim() {
+      var task = document.getElementById("interative-menu-sim").value;
+
+      console.log("interactive", task)
+
+      var video = document.getElementById("interactive-video-sim");
+      video.src = "media/videos/simulation/" + 
+                  task + 
+                  ".mp4"
+      video.play();
+
+      var html1 = document.getElementById("interactive-html-sim-1");
+      html1.src = "media/interactive/simulation/" + 
+                  task + 
+                  "-1.html"
+      var html2 = document.getElementById("interactive-html-sim-2");
+      html2.src = "media/interactive/simulation/" + 
+                  task + 
+                  "-2.html"
+      console.log("html", html1.src, html2.src)
+      // show the second iframe container
+      var iframeContainer2 = document.getElementById("second-iframe-container");
+      iframeContainer2.style.display = "block";
+    }
+
+    function updateInteractiveRealHousehold() {
+      var task = document.getElementById("interative-menu-real-household").value;
+
+      console.log("interactive", task)
+
+      var video = document.getElementById("interactive-video-real-household");
+      video.src = "media/videos/real_world/" + 
+                  task + 
+                  ".mp4"
+      video.play();
+
+      var html = document.getElementById("interactive-html-real-household");
+      html.src = "media/interactive/real_world/" + 
+                  task + 
+                  ".html"
+    }
+    function updateInteractiveRealChemicalLab() {
+      var task = document.getElementById("interative-menu-real-chemical-lab").value;
+
+      console.log("interactive", task)
+
+      var video = document.getElementById("interactive-video-real-chemical-lab");
+      video.src = "media/videos/real_world/" + 
+                  task + 
+                  ".mp4"
+      video.play();
+
+      var html = document.getElementById("interactive-html-real-chemical-lab");
+      html.src = "media/interactive/real_world/" + 
+                  task + 
+                  ".html"
+    }
+
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body onload="updateInteractiveSim();">
+<body onload="updateInteractiveRealHousehold();">
+<body onload="updateInteractiveRealChemicalLab();">
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-fullhd">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">ReSemAct: Advancing Fine-Grained Robotic Manipulation <br> via Semantic Structuring and Affordance Refinement</h1>
+          <!-- <div class="is-size-5 publication-authors"> -->
+            <!-- <span class="author-block">
+              <a target="_blank" >....</a><sup>1</sup>,
+            </span> -->
+            <!-- <span class="author-block">
+              <a target="_blank">......</a><sup>1</sup>,
+            </span> -->
+          <!-- </div> -->
+
+          <!-- <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>.....</span>
+          </div> -->
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+
+            <!-- Code Link. -->
+            <span class="link-block">
+              <a target="_blank" href=""
+                 class="external-link button is-normal is-rounded is-dark">
+                <span class="icon">
+                    <i class="fab fa-github"></i>
+                </span>
+                <span>Code</span>
+                </a>
+            </span>
+            <!-- Note -->
+            <div class="note-container">
+              <div class="note-box">
+                <span class="note-title">Note:</span>
+                <p class="note-content">
+                  We recommend accessing this website using 
+                  <span class="note-edge">Edge</span> & 
+                  <span class="note-chrome">Google Chrome</span> on 
+                  <span class="note-ubuntu">Ubuntu</span> 
+                  for better interactive visualization.
+                </p>
+              </div>
+            </div>
+
+          </div>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero is-light is-small">
+  <div class="hero-body">
+    <div class="container">
+      <div id="results-carousel-sim" class="carousel1 results-carousel-1">
+        <div class="item">
+          <video poster="" autoplay muted loop height="100%">
+            <source src="media/videos/simulation/Insert-flower-into-vase.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item">
+          <video poster="" autoplay muted loop height="100%">
+            <source src="media/videos/simulation/Insert-bread-into-toaster.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item">
+          <video poster="" autoplay muted loop height="100%">
+            <source src="media/videos/simulation/Cut-cake-with-knife.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item">
+          <video poster="" autoplay muted loop height="100%">
+            <source src="media/videos/simulation/Fold-towel.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item">
+          <video poster="" autoplay muted loop height="100%">
+            <source src="media/videos/simulation/Toggle-switch.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item">
+          <video poster="" autoplay muted loop height="100%">
+            <source src="media/videos/simulation/Take-Napkin.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item">
+          <video poster="" autoplay muted loop height="100%">
+            <source src="media/videos/simulation/Place-funnel-on-iron-ring.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item">
+          <video poster="" autoplay muted loop height="100%">
+            <source src="media/videos/simulation/Grip-stir-bar-with-tweezers.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item">
+          <video poster="" autoplay muted loop height="100%">
+            <source src="media/videos/simulation/Pick-up-pestle-on-mortar.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item">
+          <video poster="" autoplay muted loop height="100%">
+            <source src="media/videos/simulation/Pour-reagent-into-dish.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item">
+          <video poster="" autoplay muted loop height="100%">
+            <source src="media/videos/simulation/Place-reagent-bottle-on-stirrer.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item">
+          <video poster="" autoplay muted loop height="100%">
+            <source src="media/videos/simulation/Weigh-the-reagent-bottle.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero is-light is-small">
+  <div class="hero-body">
+    <div class="container">
+      <div id="results-carousel-realworld" class="carousel2 results-carousel-2">
+        <div class="item">
+          <video poster="" autoplay muted loop height="100%">
+            <source src="media/videos/real_world/Grip-stir-bar-with-tweezers.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item">
+          <video poster="" autoplay muted loop height="100%">
+            <source src="media/videos/real_world/Pick-up-pestle-on-mortar.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item">
+          <video poster="" autoplay muted loop height="100%">
+            <source src="media/videos/real_world/Place-beaker-on-stirrer.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item">
+          <video poster="" autoplay muted loop height="100%">
+            <source src="media/videos/real_world/Pour-liquid-with-beaker.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item">
+          <video poster="" autoplay muted loop height="100%">
+            <source src="media/videos/real_world/Weigh-the-bottle.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item">
+          <video poster="" autoplay muted loop height="100%">
+            <source src="media/videos/real_world/Pick-test-tube-rack.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item">
+          <video poster="" autoplay muted loop height="100%">
+            <source src="media/videos/real_world/Toggle-switch.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item">
+          <video poster="" autoplay muted loop height="100%">
+            <source src="media/videos/real_world/Place-lid-on-mug.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item">
+          <video poster="" autoplay muted loop height="100%">
+            <source src="media/videos/real_world/Insert-flower-into-vase.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item">
+          <video poster="" autoplay muted loop height="100%">
+            <source src="media/videos/real_world/Fold-towel.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item">
+          <video poster="" autoplay muted loop height="100%">
+            <source src="media/videos/real_world/Take-Napkin.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item">
+          <video poster="" autoplay muted loop height="100%">
+            <source src="media/videos/real_world/Throw-trash-into-bin.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+          Fine-grained robotic manipulation requires grounding natural language into appropriate affordance targets. However, 
+          most existing methods driven by foundation models often compress rich semantics into oversimplified affordances, 
+          preventing exploitation of implicit semantic information. 
+          To address these challenges, we present ReSemAct, a novel unified manipulation framework that introduces Semantic Structuring and Affordance Refinement (SSAR), 
+          powered by the automated synergistic reasoning between Multimodal Large Language Models (MLLMs) and Vision Foundation Models (VFMs). 
+          Specifically, the Semantic Structuring module derives a unified semantic affordance description from natural language and RGB observations, 
+          organizing affordance regions, implicit functional intent, and coarse affordance anchors into a structured representation for downstream refinement. 
+          Building upon this specification, the Affordance Refinement strategy instantiates two complementary flows that separately specialize geometry and position, 
+          yielding fine-grained affordance targets. These refined targets are then encoded as real-time joint-space optimization objectives, 
+          enabling reactive and robust manipulation in dynamic environments.
+          Extensive simulation and real-world experiments are conducted in semantically rich household and sparse chemical lab environments. 
+          The results demonstrate that ReSemAct performs diverse tasks under zero-shot conditions, showcasing the robustness of SSAR with foundation models in fine-grained manipulation.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+
+  </div>
+
+</section>
+
+<section class="section">
+  <div class="container is-max-widescreen">
+    <div class="rows">
+
+    <!-- Animation. -->
+    <div class="rows is-centered ">
+      <div class="row is-full-width">
+        <h2 class="title is-3">ReSemAct FrameWork</h2>
+
+        <!-- Interpolating. -->
+        <img src="media/figures/framework.svg" class="interpolation-image" />
+        </br>
+        </br>
+          <p class="content has-text-justified">
+            <strong>Framework.</strong> Given natural language instructions and RGB-D observations, the synergistic reasoning between VFM and MLLM facilitates the semantic structuring representation. Within the MLLM-driven TAMP framework, the Semantic Structuring and Affordance Refinement Strategy performs geometric and positional flow optimization over the Semantic Affordance Description, thereby generating the refined affordance targets. These targets are then encoded as cost functions and solved in real-time by a closed-loop MPPI-based optimizer in Isaac Gym, enabling joint-space control with point tracking.
+          </p>
+        <!-- Interpolating. -->
+        <img src="media/figures/task.svg" class="interpolation-image" />
+        </br>
+          <p class="content has-text-justified">
+            <strong>Task.</strong> ReSemAct is a unified robotic manipulation framework for semantically diverse environments. It leverages synergistic reasoning between MLLMs and VFMs, introducing Semantic Structuring and Affordance Refinement (SSAR) to enable fine-grained robotic manipulation.
+          </p>
+        </br>
+        </br>
+        <!--/ Re-rendering. -->
+
+        <h2 class="title is-3">Interactive Visualization (Simulation)</h2>
+        
+        <div class="columns">
+          <div class="column has-text-centered">
+            <span style="font-size: 0.9rem; line-height: 1.5; display: inline-block; vertical-align: middle; padding-top: 2px;">
+              🌟 Explore interactive visualization with mouse for tasks:
+            </span>
+            <div class="select is-small is-rounded">     
+              <select id="interative-menu-sim" onchange="updateInteractiveSim()">
+              <option value="Pick-up-pestle-on-mortar" selected="selected">"Pick up pestle on mortar."</option>
+              <option value="Insert-bread-into-toaster">"Inset bread into toaster."</option>
+              </select>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="columns">
+          <!-- left -->
+          <div class="column is-one-quarter has-text-centered"
+          style="display: flex; justify-content: center; align-items: center;">
+            <video id="interactive-video-sim" width="100%" height="auto" controls autoplay loop muted>
+              <source src="media/videos/Pick-up-pestle-on-mortar.mp4" type="video/mp4">
+            </video>
+          </div>
+
+            <div class="column has-text-centered" >
+              <iframe id="interactive-html-sim-1" src="media/interactive/Pick-up-pestle-on-mortar-1.html" width="152%" height="380" frameborder="0"></iframe>
+              <p style="text-align:center;">
+                Interactive visualization 1
+              </p>
+            </div>
+            <div class="column has-text-centered" id="second-iframe-container">
+              <iframe id="interactive-html-sim-2" src="media/interactive/Pick-up-pestle-on-mortar-2.html" width="152%" height="380" frameborder="0"></iframe>
+              <p style="text-align:center;">
+                Interactive visualization 2
+              </p>
+            </div>
+          </div>
+
+        </div>
+
+        <h2 class="title is-3">Interactive Visualization (Real-World)</h2>
+
+
+        <div class="columns">
+          <div class="column has-text-centered">
+            <span style="font-size: 0.9rem; line-height: 1.5; display: inline-block; vertical-align: middle; padding-top: 2px;">
+              🌟 Explore interactive visualization with mouse for Household Tasks:
+            </span>
+            <div class="select is-small is-rounded">     
+              <select id="interative-menu-real-household" onchange="updateInteractiveRealHousehold()">
+              <option value="Fold-towel" selected="selected">"Fold towel."</option>
+              <option value="Insert-flower-into-vase">"Insert flower into vase."</option>
+              <option value="Place-lid-on-mug">"Place lid on mug."</option>
+              <option value="Take-Napkin">"Take Napkin."</option>
+              <option value="Throw-trash-into-bin">"Throw trash into bin."</option>
+              <option value="Toggle-switch">"Toggle switch."</option>
+              </select>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="columns">
+          <!-- left -->
+          <div class="column is-half has-text-centered"
+          style="display: flex; justify-content: center; align-items: center;">
+            <video id="interactive-video-real-household" width="100%" height="auto" controls autoplay loop muted>
+              <source src="media/videos/real_world/Fold-towel.mp4" type="video/mp4">
+            </video>
+          </div>
+        
+          <div class="column has-text-centered" >
+              <iframe id="interactive-html-real-household" src="media/interactive/real_world/Fold-towel.html" width="150%" height="380" frameborder="0"></iframe>
+              <p style="text-align:center;">
+                Interactive visualization
+              </p>
+          </div>
+        </div>
+
+        <div class="columns">
+          <div class="column has-text-centered">
+            <span style="font-size: 0.9rem; line-height: 1.5; display: inline-block; vertical-align: middle; padding-top: 2px;">
+              🌟 Explore interactive visualization with mouse for Chemical Tasks:  
+            </span>
+            <div class="select is-small is-rounded">     
+              <select id="interative-menu-real-chemical-lab" onchange="updateInteractiveRealChemicalLab()">
+              <option value="Grip-stir-bar-with-tweezers" selected="selected">"Grip stir bar with tweezers."</option>
+              <option value="Pick-test-tube-rack">"Pick test tube rack."</option>
+              <option value="Pick-up-pestle-on-mortar">"Pick up pestle on mortar."</option>
+              <option value="Place-beaker-on-stirrer">"Place beaker on stirrer."</option>
+              <option value="Pour-liquid-with-beaker">"Pour liquid with beaker."</option>
+              <option value="Weigh-the-bottle">"Weigh the bottle."</option>
+              </select>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="columns">
+          <!-- left -->
+          <div class="column is-half has-text-centered"
+            style="display: flex; justify-content: center; align-items: center;">
+            <video id="interactive-video-real-chemical-lab" width="100%" height="auto" controls autoplay loop muted>
+              <source src="media/videos/real_world/Grip-stir-bar-with-tweezers.mp4" type="video/mp4">
+            </video>
+          </div>
+        
+          <div class="column has-text-centered" >
+            <iframe id="interactive-html-real-chemical-lab" src="media/interactive/real_world/Grip-stir-bar-with-tweezers.html" width="150%" height="380" frameborder="0"></iframe>
+              <p style="text-align:center;">
+                Interactive visualization
+              </p>
+          </div>
+        </div>
+        
+    </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-widescreen">
+
+    <div class="rows">
+      <h2 class="title is-3">Execution under Disturbances</h2>
+      
+      <p class="content has-text-centered has-text-weight-bold is-size-4">
+        Disturbance for Household Tasks
+      </p>
+
+      <div class="columns">
+        <div class="column has-text-centered">
+          <video id="dist1-household"
+            controls
+            muted
+            autoplay
+            loop
+            width="99%">
+            <source src="media/videos/real_world/D-Fold-towel.mp4" 
+            type="video/mp4">
+          </video>
+          <p style="text-align:center">
+            "Fold towel."
+          </p>
+        </div>
+    
+        <div class="column has-text-centered">
+          <video id="dist2-household"
+            controls
+            muted
+            autoplay
+            loop
+            width="99%">
+            <source src="media/videos/real_world/D-Throw-trash-into-bin.mp4" 
+            type="video/mp4">
+          </video>
+          <p style="text-align:center">
+            "Throw trash into the bin."
+          </p>
+        </div>
+      </div>
+
+      <p class="content has-text-centered has-text-weight-bold is-size-4">
+        Disturbance for Chemical Lab Tasks
+      </p>
+
+      <div class="columns">
+        <div class="column has-text-centered">
+          <video id="dist1-chemical-lab"
+            controls
+            muted
+            autoplay
+            loop
+            width="99%">
+            <source src="media/videos/real_world/D-Pick-up-pestle-on-mortar.mp4" 
+            type="video/mp4">
+          </video>
+          <p style="text-align:center">
+            "Pick up pestle on mortar."
+          </p>
+        </div>
+    
+        <div class="column has-text-centered">
+          <video id="dist2-chemical-lab"
+            controls
+            muted
+            autoplay
+            loop
+            width="99%">
+            <source src="media/videos/real_world/D-Pour-liquid-with-beaker.mp4" 
+            type="video/mp4">
+          </video>
+          <p style="text-align:center">
+            "Pour liquid with beaker."
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-widescreen">
+
+    <div class="rows">
+      <h2 class="title is-3">Long-Horizon Task</h2>
+      
+      <p class="content has-text-justified">
+        🌟 With the SSAR and MLLM-driven Task and Motion Planning, ReSemAct shows strong potential for long-horizon tasks. It achieves closed-loop control through autonomous multi-stage task decomposition, combined with condition reasoning and cost optimization.
+      </p>
+
+      <div class="columns" style="height: 600px;">
+        <!-- left -->
+        <div class="column" style="flex: 0 0 45%;">
+          <div class="left-textbox">
+            <h3>User Instruction: Please complete a magnetic stirring experiment involving liquid and stir bar transfer with an empty beaker and tweezers.</h3>
+            <p>Step 1: Pick up the tweezers. <br> Step 2: Grasp the stir bar with the tweezers. <br> Step 3: Place the stir bar into the empty beaker. <br> Step 4: Pour the liquid into the beaker. <br> Step 5: Place the beaker on the magnetic stirrer.</p> 
+          </div>
+          <div style="height: 50%; margin-top: 2%; border: 1px solid #ccc; border-radius: 8px; overflow: hidden;">
+            <iframe src="media/interactive/real_world/long_horizon.html" width="100%" height="100%" frameborder="0"></iframe>
+          </div>
+          <p style="text-align:center;">
+            Interactive visualization
+          </p>
+        </div>
+
+        <!-- right -->
+        <div class="column" style="flex: 0 0 55%; display: flex; justify-content: center; align-items: center;">
+          <video
+            controls muted autoplay loop
+            width="100%"
+            height="auto"   
+            style="object-fit: contain; border-radius: 8px;">
+            <source src="media/videos/real_world/long_horizon.mp4" type="video/mp4" />
+          </video>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-widescreen">
+  <div class="row">
+    <h2 class="title is-3">
+      Prompts for ReSemAct
+    </h2>
+    <p class="content has-text-justified">
+        <br>
+
+        <a href="prompts/mllm_extraction_prompt.txt">MLLM Extraction</a> |
+        <a href="prompts/mllm_refinement_prompt.txt">MLLM Refinement</a> |
+        <a href="prompts/task_planner_prompt.txt">Task Planner</a> |
+        <a href="prompts/semantic_structuring_prompt.txt">Semantic Structuring</a> |
+        <a href="prompts/affordance_refinement_prompt.txt">Affordance Refinement</a> |
+        <a href="prompts/subtask_exec_prompt.txt">Subtask Execution</a> |
+        <a href="prompts/precond_building_prompt.txt">PreConditions Building</a> |
+        <a href="prompts/costfunc_building_prompt.txt">Cost Function Building</a> |
+        <a href="prompts/postcond_building_prompt.txt">PostConditions Building</a> |
+    </p>
+  </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column">
+        <div class="content has-text-centered">
+          <p>
+            Website template borrowed from <a href="https://voxposer.github.io/index.html">Voxposer</a>. 
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+</body>
+</html>

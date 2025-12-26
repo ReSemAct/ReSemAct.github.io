@@ -1,0 +1,359 @@
+body {
+  font-family: 'Noto Sans', sans-serif;
+}
+
+/* interactive menu buttons */
+#interative-menu-sim {
+  border: 2px solid #3273dc; /* Bulma primary color */
+  background-color: #ffffff;
+  transition: box-shadow 0.2s ease;
+}
+#interative-menu-sim:hover {
+  box-shadow: 0 0 0 3px rgba(50, 115, 220, 0.2);
+}
+
+#interative-menu-real-household {
+  border: 2px solid #3273dc; /* Bulma primary color */
+  background-color: #ffffff;
+  transition: box-shadow 0.2s ease;
+}
+#interative-menu-real-household:hover {
+  box-shadow: 0 0 0 3px rgba(50, 115, 220, 0.2);
+}
+
+#interative-menu-real-chemical-lab {
+  border: 2px solid #3273dc; /* Bulma primary color */
+  background-color: #ffffff;
+  transition: box-shadow 0.2s ease;
+}
+#interative-menu-real-chemical-lab:hover {
+  box-shadow: 0 0 0 3px rgba(50, 115, 220, 0.2);
+}
+
+/* note box styles */
+.note-container {
+  display: flex;
+  justify-content: center;
+  margin: 30px 0;
+}
+
+.note-box {
+  display: inline-flex;
+  align-items: center;
+  background: #fff;
+  border: 3px solid #ff4757;
+  border-radius: 20px;
+  padding: 12px 20px;
+  box-shadow: 0 5px 15px rgba(255, 71, 87, 0.1);
+  max-width: 90%;
+}
+
+.note-title {
+  font-weight: 900;
+  color: #ff4757;
+  font-size: 20px;
+  margin-right: 10px;
+  letter-spacing: 1px;
+}
+
+.note-content {
+  margin: 0;
+  font-size: 17px;
+  color: #333;
+  line-height: 1.5;
+  font-weight: 600;
+}
+
+.note-edge { color: #ff4757; }
+.note-chrome { color: #2ed573; }
+.note-ubuntu { color: #1e90ff; }
+
+/* layout for split columns */
+.container-columns {
+  display: flex;
+  height: 600px; /* fixed height for equal columns */
+  gap: 20px;
+  box-sizing: border-box;
+  padding: 10px;
+}
+
+/* left side textbox */
+.left-textbox {
+  height: 50%;
+  background: linear-gradient(145deg, #ffffff, #f5f7fa);
+  border: 1.5px solid #4a90e2;
+  border-radius: 12px;
+  padding: 20px;
+  overflow-y: auto;
+  box-shadow: 0 6px 18px rgba(74, 144, 226, 0.15);
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.left-textbox:hover {
+  box-shadow: 0 8px 24px rgba(74, 144, 226, 0.25);
+  transform: translateY(-2px);
+}
+
+.left-textbox h3 {
+  color: #004080;
+  font-size: 18px;
+  margin-bottom: 15px;
+  font-weight: 600;
+  border-bottom: 2px solid #4a90e2;
+  padding-bottom: 8px;
+}
+
+.left-textbox p {
+  line-height: 1.8;
+  font-size: 15px;
+}
+
+.left-textbox p br {
+  content: "";
+  display: block;
+  margin-bottom: 2px;
+}
+
+/* step indicator */
+.left-textbox .step {
+  position: relative;
+  padding-left: 30px;
+  margin-bottom: 15px;
+}
+
+.left-textbox .step::before {
+  content: attr(data-step);
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 22px;
+  height: 22px;
+  background-color: #4a90e2;
+  color: white;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 22px;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+/* right side video container */
+.right-video-container {
+  flex: 0 0 60%; /* 60% width */
+  display: flex;
+  justify-content: center; /* center horizontally */
+  align-items: center;     /* center vertically */
+  box-sizing: border-box;
+  background: none; /* clean background */
+}
+
+/* video element style */
+.right-video-container video {
+  width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  border-radius: 8px;
+  display: block;
+}
+
+.footer .icon-link {
+    font-size: 25px;
+    color: #000;
+}
+
+.link-block a {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.dnerf {
+  font-variant: small-caps;
+}
+
+.dperact {
+  font-variant: small-caps;
+}
+
+.teaser .hero-body {
+  padding-top: 0;
+}
+
+.teaser {
+  font-family: 'Google Sans', sans-serif;
+}
+
+.teaser video {
+  object-fit: fill;
+  
+}
+#glass{
+  margin-left: -10px;
+}
+
+.publication-title {
+}
+
+.publication-banner {
+  max-height: parent;
+
+}
+
+.publication-banner video {
+  position: relative;
+  left: auto;
+  top: auto;
+  transform: none;
+  object-fit: fit;
+}
+
+.publication-header .hero-body {
+}
+
+.publication-title {
+    font-family: 'Google Sans', sans-serif;
+}
+
+.publication-authors {
+    font-family: 'Google Sans', sans-serif;
+}
+
+.publication-venue {
+    color: #555;
+    width: fit-content;
+    font-weight: bold;
+}
+
+.publication-awards {
+    color: #ff3860;
+    width: fit-content;
+    font-weight: bolder;
+}
+
+.publication-authors {
+}
+
+.publication-authors a {
+   color: hsl(32, 100%, 50%) !important;
+}
+
+.conference-authors a {
+   color: #B83A4B !important;
+}
+
+.publication-authors a:hover {
+    text-decoration: underline;
+}
+
+.author-block {
+  display: inline-block;
+}
+
+.publication-banner img {
+}
+
+.publication-authors {
+  /*color: #4286f4;*/
+}
+
+.publication-video {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 56.25%;
+
+    overflow: hidden;
+    border-radius: 10px !important;
+}
+
+.publication-video iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.publication-body img {
+}
+
+.results-carousel-1 {
+  overflow: hidden;
+}
+
+.results-carousel-1 .item {
+  margin: 5px;
+  overflow: hidden;
+  border: 1px solid #bbb;
+  border-radius: 10px;
+  padding: 0;
+  font-size: 0;
+}
+
+.results-carousel-1 video {
+  margin: 0;
+}
+
+.results-carousel-2 {
+  overflow: hidden;
+}
+
+.results-carousel-2 .item {
+  margin: 5px;
+  overflow: hidden;
+  border: 1px solid #bbb;
+  border-radius: 10px;
+  padding: 0;
+  font-size: 0;
+}
+
+.results-carousel-2 video {
+  margin: 0;
+}
+
+.interpolation-panel {
+  background: #f5f5f5;
+  border-radius: 10px;
+}
+
+.interpolation-panel .interpolation-image {
+  width: 100vh;
+  background-size: cover;
+  border-radius: 5px;
+}
+
+.interpolation-video-column {
+}
+
+.interpolation-panel .slider {
+  margin: 0 !important;
+}
+
+.interpolation-panel .slider {
+  margin: 0 !important;
+}
+
+#interpolation-image-wrapper {
+  width: 100%;
+}
+#interpolation-image-wrapper img {
+  border-radius: 5px;
+}
+
+#interpolation-image img {
+    padding: 0;
+    display: block;
+    margin: 0 auto;
+    max-height: 100%;
+    max-width: 100%;
+}
+
+ .dropdown-item{
+    white-space: pre-wrap;
+}  
+
+
+.justify {
+  text-align: justify;
+}
+
